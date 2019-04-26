@@ -1,0 +1,150 @@
+﻿
+@model PagedList.IPagedList<MVCGallery.Models.Artwork>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@*<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+
+@{
+    ViewBag.Title = "Index";
+}
+<body id="artwork-wrapper">
+    <h2>Gallery</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <ul class="nav nav-pills nav-stacked">
+                    <li>@Html.ActionLink("Art Owners", "Index", "Patron")
+                    <li>@Html.ActionLink("Artists", "index", "Artist")</li>
+                    <li class="active">@Html.ActionLink("Create Artwork", "Create", "Artwork")</li>
+                </ul>
+                @*<div class="col-xs-4 col-sm-8 col-md-8 col-lg-8">
+
+                </div>*@
+
+            </div>
+        </div>
+        <br />
+
+        @using (Html.BeginForm("Index", "Artwork", FormMethod.Get))
+        {
+            <p>
+                @Html.TextBox("SearchString")
+                <input type="submit" value="Search by Title" />
+            </p>
+        }
+
+    </div>
+    <table class="table">
+
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Title)*@
+                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.ArtworkNameSortParm })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ImageUrl)*@
+                Image
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Artist.ArtistName)*@
+                Artist
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Year)*@
+                Year
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Exhibition.City)*@
+                On Display
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Likes)*@
+                @Html.ActionLink("Likes", "Index", new { sortOrder = ViewBag.LikesSortParm })
+            </th>
+            <th>
+                Actions
+            </th>
+
+            @*<th>
+            @Html.DisplayNameFor(model => model.Patron.PatronName)
+            @Html.DisplayNameFor(model => model.CurrentValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medium)
+        </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                <img id="intab" src="@Url.Content(item.ImageUrl ?? "~/Content/mona_lisa.jpg")" alt="No Image" @*width="80" height="80"*@ />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist.ArtistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exhibition.City)
+            </td>
+            <td>
+                <div id="@item.ArtworkID" class="flex-container">
+                    @*<div id="LikeTally" class="flex-container">*@
+                    @Html.Action("_Indexpartial", new { Id = item.ArtworkID })
+
+                </div>
+            </td>
+
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Patron.PatronName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medium)
+        </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ArtworkID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ArtworkID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ArtworkID })
+            </td>
+        </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+</body>
+
+
+@section scripts {
+
+    @*<script type="text/javascript">
+            function ShowPopup() {
+                console.log("show popup invoked");
+                $('#modal-container').modal('show');
+                $('#modal-container').attr('data-toggle', 'modal');
+            }
+    </script>*@
+
+}

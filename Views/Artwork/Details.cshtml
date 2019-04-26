@@ -1,0 +1,106 @@
+﻿@model MVCGallery.Models.Artwork
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artwork</h4>
+    <hr />
+
+    @*<img src="@Url.Content(Model.ImageUrl ?? "~/Content/mona_lisa.jpg")" alt="Image" width="400" height="400" />*@
+
+
+
+
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>*@
+
+        <dd>
+            <img id="intab2" src="@Url.Content(Model.ImageUrl ?? "~/Content/mona_lisa.jpg")" alt="No Image" @*width="80" height="80"*@ />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artist.ArtistName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artist.ArtistName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exhibition.ExName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exhibition.ExName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patron.PatronName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patron.PatronName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd style="padding: 3px; width: 350px; overflow-wrap: normal">
+            @*<dd style="padding: 3px; width: 350px; word-break: break-all; word-wrap: break-word">*@
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Likes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Likes)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medium)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medium)
+        </dd>
+
+    </dl>
+</div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArtworkID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+

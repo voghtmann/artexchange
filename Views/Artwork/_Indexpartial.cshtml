@@ -1,0 +1,46 @@
+﻿@*@model IEnumerable<MVCGallery.Models.Artwork>*@
+@model MVCGallery.Models.Artwork
+
+<div><p class="likecount">@Html.DisplayFor(Model => Model.Likes)</p></div>
+
+<div>
+    @using (Ajax.BeginForm(
+        actionName: "Likes",
+        controllerName: "Artwork",
+        routeValues: new { Id = Model.ArtworkID },
+        ajaxOptions: new AjaxOptions
+        {
+            UpdateTargetId = Model.ArtworkID.ToString(),
+            //UpdateTargetId = "LikeTally",
+            InsertionMode = InsertionMode.Replace
+        }
+        ))
+    {
+        <input id="likeButton" type="image" src="~/Content/Like.png" width="30" alt="Submit" />
+    }
+</div>
+
+@section scripts {
+
+
+    @*<script type="text/javascript">
+        function ShowPopup() {
+
+            $('#modal-container').modal('show');
+            $("#modal-container").attr('data-toggle', 'modal');
+        }
+
+    </script>*@
+
+
+
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+}
+
+
+

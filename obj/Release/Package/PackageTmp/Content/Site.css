@@ -1,0 +1,206 @@
+﻿html {
+    background-color: #e2e2e2;
+    margin: 0;
+    padding: 0;
+}
+
+
+#title-text{
+    font-size: 80px;
+    font-family:'Viner Hand ITC';
+}
+
+body {
+    background-color: #333;
+    border-top: solid 10px #000;
+    color: #fff;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+input[type=text] {
+    /*background-color: #fff;*/
+    color: darkgrey;
+    font-size: 15px;
+    border: none;
+    height: 30px;
+    border-radius: 3px;
+    padding-left: 12px;
+}
+
+input[type=text]:focus {
+    background-color: gainsboro;
+    color: black;
+}
+
+input[type=submit]{
+    background-color: #428BCA;
+    color: #fff;
+    border: 0 none;
+    border-radius: 3px;
+    height: 32px;
+}
+
+#landing-wrapper {
+    background:linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),url('collage.jpg');
+    background-position: center top;
+    color: white;
+}
+
+#artwork-wrapper {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),url('artexchange.jpg');
+    background-position: center top;
+    color: white;
+    
+}
+
+#artist-wrapper {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),url('artexchange2.jpg');
+    background-position: center top;
+    color: white;
+}
+
+#patron-wrapper {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),url('artexchange3.jpg');
+    background-position: center top;
+    color: white;
+}
+
+#exhibition-wrapper {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),url('artexchange4.jpg');
+    background-position: center top;
+    color: white;
+}
+
+#about-wrapper {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),url('artexchange4.jpg');
+    background-position: center top;
+    color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+table {
+    table-layout: fixed;
+    margin: auto;
+
+}
+
+img {
+    height: 120px;
+    width: 120px;
+}
+
+#frontimage {
+        height: 250px;
+        width: auto;
+        align-self:center;
+        margin-top:20px;
+    }
+
+#intab {
+    height: 80px;
+    width: 80px;
+}
+
+#intab2 {
+    height: 380px;
+    width: 380px;
+}
+    
+td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+td:hover #intab {
+    height: 180px;
+    width: 180px;
+}
+
+.container #frontpage{
+    background-color: black;
+}
+
+#front1 {
+    background-color: darkgray;
+    opacity: 0.9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#front2 {
+    background-color: darkgray;
+    /*opacity: 0.9;*/
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#front3 {
+    background-color: darkgray;
+    opacity: 0.9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#front4 {
+    background-color: orange;
+    color: black !Important;
+    opacity: 0.9;
+    padding-left: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#frontmain {
+    background-color: dodgerblue;
+    opacity: 0.9;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 640px) {
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+
+    #frontimage {
+        height: 150px;
+        width: auto;
+        align-self: center;
+    }
+
+    #title-text {
+        font-size: 50px;
+        font-family: 'Viner Hand ITC';
+    }
+
+}

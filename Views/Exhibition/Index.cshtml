@@ -1,0 +1,101 @@
+﻿@*@model IEnumerable<MVCGallery.Models.Exhibition>*@
+
+@model PagedList.IPagedList<MVCGallery.Models.Exhibition>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<body id="exhibition-wrapper">
+    <h2>Exhibition</h2>
+
+    <p>
+        @Html.ActionLink("Create New Exhibition", "Create")
+    </p>
+
+    @using (Html.BeginForm("Index", "Artwork", FormMethod.Get))
+    {
+        <p>
+            @Html.TextBox("SearchString")
+            <input id="searchtext" type="submit" value="Search by Title" />
+        </p>
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ExName)*@
+                Exhibition
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.StartDate)*@
+                Start Date
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.FinishDate)*@
+                @Html.ActionLink("End Date", "Index", new { sortOrder = ViewBag.FinishDateSortParm })
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Venue)*@
+                Venue
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.City)*@
+                @Html.ActionLink("City", "Index", new { sortOrder = ViewBag.CitySortParm })
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ExDesc)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Venue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.ExDesc)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ExhibitionID }) |
+                    @Html.ActionLink("Reviews", "Details", new { id = item.ExhibitionID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ExhibitionID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+    <br />
+    <h2>The Latest Reviews</h2>
+
+    @foreach (var item in Model)
+    {
+        @Html.Partial("_ExhibitionReview", item)
+    }
+    <p>
+        @Html.ActionLink("Create", "Create")
+    </p>
+</body>

@@ -1,0 +1,93 @@
+﻿@model MVCGallery.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistUrl)
+        </dt>
+        <dd>
+            @*@Html.DisplayFor(model => model.ArtistUrl)*@
+            <img src="@Url.Content(Model.ArtistUrl ?? "~/Content/artist_ldavinci.jpg")" alt="No Image" width="500" height="500" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtistName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Death)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Death)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryOfOrigin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryOfOrigin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DominantStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DominantStyle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtistDesc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Artworks)
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Exhibition</th>
+                    <th>Artwork Displayed</th>
+                </tr>
+                @foreach (var item in Model.Artworks)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Exhibition.ExName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ArtistID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,11 @@
+﻿@model MVCGallery.Models.Exhibition
+
+<div class="Review">
+    <h4>@Model.ExName</h4>
+     <span>@Model.StartDate</span>
+     <p>Model.FinishDate</p>
+     <p>@Model.Venue, @Model.City</p>
+     <span class="right">
+         @Html.ActionLink("Edit", "Edit", new { id = Model.ExhibitionID }) 
+     </span>
+ </div>   

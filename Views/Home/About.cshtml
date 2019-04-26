@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MVCGallery.ViewModels.ArtworkGroup>
+
+@{
+    ViewBag.Title = "Gallery Summary Statistics";
+}
+<body id="about-wrapper">
+    <h2>Gallery Summary</h2>
+
+    <p>Introduce the summary page and say a little about what is here.</p>
+
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div id="front4">
+                    <h3>Most Liked</h3>
+                    <div class="container">@Html.Action("mostLiked", "Artwork")</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div id="front4">
+                <h3>Most Expensive</h3>
+                <div class="container">@Html.Action("mostValuable", "Artwork")</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div id="front4">
+                <h3>Most Liked</h3>
+                <div class="container">@Html.Action("mostLiked", "Artwork")</div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+                <div id="front4">
+                    <h3>Most Liked</h3>
+                    <div class="container">@Html.Action("mostLiked", "Artwork")</div>
+                </div>
+        </div>
+    </div>
+
+    <h2>Style Summary</h2>
+
+    <table class="table">
+        <caption>Number of artists per style</caption>
+        <tr>
+            <th>
+                Dominant Style
+            </th>
+            <th>
+                Artists
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DominantStyle)
+                </td>
+                <td>
+                    @item.ArtistCount
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <h2>Number of works by Artist</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Artist
+            </th>
+            <th>
+                Number of Works in Gallery
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtistName)
+                </td>
+                <td>
+                    @item.ArtworkCount
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

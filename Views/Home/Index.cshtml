@@ -1,0 +1,60 @@
+﻿@model MVCGallery.Models.Artwork
+
+@{
+    ViewBag.Title = "Home Page";
+}
+    <body id="landing-wrapper">
+        <div class="col-md-12" id="frontmain">
+            <h1 id="title-text">The Art Exchange</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 font="italics">Where art lovers meet</h2>
+                    <p>
+                        The Art Exchange is an online gallery for owners and artists to display their work to a global audience of art lovers
+                        - and potential buyers. As well as information on the Art and the Artist, the exchange shares details of the next opportunity to
+                        see the work live. To display a piece you own, follow the three step process below.
+                    </p>
+                    <br />
+                    <p>
+                        To simply enjoy the art, click on 'View Gallery'. If you find something
+                        you like, you can get in touch with the current owner and become a patron of the arts yourself...
+                    </p>
+                </div>
+                <div class="col-md-offset-6">
+
+                    <center><img id="frontimage" src="~/Content/artexchange.jpg" alt="gallery image"></center>
+                </div>
+            </div>
+            <br />
+            <p><center><a href="/Artwork" class="btn btn-primary btn-lg">View Gallery &raquo;</a></center></p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div id="front1">
+                    <h2>STEP 1. Enter Owner</h2>
+                    <p><a class="btn btn-default" href="/Patron/Create">Create &raquo;</a></p>
+                    <p>NuGet is a free Visual Studio extension that makes it easy to add, </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div id="front2">
+                    <h2>STEP 2. Enter Artist</h2>
+                    <p><a class="btn btn-default" href="/Artist/Create">Create &raquo;</a></p>
+                    <p>NuGet is a free Visual Studio extension that makes it easy to add, </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div id="front3">
+                    <h2>STEP 3. Display Art</h2>
+                    <p><a class="btn btn-default" href="/Artwork/Create">Display &raquo;</a></p>
+                    <p>NuGet is a free Visual Studio extension that makes it easy to add,</p>
+                </div>
+            </div>
+
+        </div>
+    </body>

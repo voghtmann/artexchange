@@ -1,0 +1,11 @@
+﻿@model MVCGallery.Models.Artwork
+
+<div class="review">
+    <h4>@Model.Title</h4>
+    <span>@Model.Likes</span>
+    <p>@Model.Artist.ArtistName</p>
+
+    <span class="right">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArtworkID })
+    </span>
+</div>
